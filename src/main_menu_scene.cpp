@@ -9,12 +9,6 @@ MainMenuScene::MainMenuScene(SceneManager &manager) : Scene(manager)
         Config::SCREEN_HEIGHT / 2.5f,
         100,
         50};
-
-    settingsButton = {
-        Config::SCREEN_WIDTH / 2.5f,
-        Config::SCREEN_HEIGHT / 2.5f + 70,
-        100,
-        50};
 }
 
 void MainMenuScene::onEnter()
@@ -33,10 +27,6 @@ void MainMenuScene::update()
         {
             sceneManager.changeScene(SceneManager::SceneType::GAME);
         }
-        else if (isSettingsButtonClicked())
-        {
-            // todo change to settings scene
-        }
     }
 }
 
@@ -48,23 +38,10 @@ void MainMenuScene::render()
              playButton.y + 15,
              20,
              WHITE);
-
-    DrawRectangleRec(settingsButton, GRAY);
-    DrawText("Settings",
-             settingsButton.x + 10,
-             settingsButton.y + 15,
-             20,
-             WHITE);
 }
 
 bool MainMenuScene::isPlayButtonClicked() const
 {
     Vector2 mousePos = GetMousePosition();
     return CheckCollisionPointRec(mousePos, playButton);
-}
-
-bool MainMenuScene::isSettingsButtonClicked() const
-{
-    Vector2 mousePos = GetMousePosition();
-    return CheckCollisionPointRec(mousePos, settingsButton);
 }
