@@ -9,7 +9,6 @@ class MainMenuScene : public Scene
 {
 private:
     Rectangle playButton;
-    Rectangle settingsButton;
 
 public:
     MainMenuScene(SceneManager &manager);
@@ -20,5 +19,4 @@ public:
     void render() override;
 
     bool isPlayButtonClicked() const;
-    bool isSettingsButtonClicked() const;
 };
